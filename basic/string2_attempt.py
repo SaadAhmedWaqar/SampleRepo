@@ -8,8 +8,8 @@
 # Return the resulting string.
 
 
-def verbing(s):
-    if (len(s) > 3) and (s[-3:] == 'ing'):
+def verbing(s):           #-3 is 3rd last index
+    if (len(s) > 3) and (s[-3:] == 'ing'):  #if length > 3 AND  last 3 characters (substring) is ing 
         s+='ly'
     elif (len(s) > 3):
         s+='ing'
@@ -30,7 +30,7 @@ def verbing(s):
 
 def not_bad(txt):
     
-    n = txt.find('not')
+    n = txt.find('not')  # find returns the index of where the argument starts in a string
     b = txt.find('bad')
     #print ('not is at index {}, bad is at index {}'.format(n,b))
 
@@ -49,9 +49,27 @@ def not_bad(txt):
 # Given 2 strings, a and b, return a string of the form
 #  a-front + b-front + a-back + b-back
 def front_back(a, b):
-  # +++your code here+++
-  return
+    len_a = len(a)
+    len_b = len(b)
+    half_a = int (len_a/2) # implicit decleration of float to int. 5/2 = 2.5 ===> 2 
+    half_b = int (len_b/2)
+    
+    if ((len_a % 2) == 0):
+        a_front = a[0:half_a] # slicing only works on int arguments
+        a_back = a[half_a:]
+    else:
+        a_front = a[0:half_a+1]
+        a_back = a[half_a+1:]
 
+    if ((len_b % 2) == 0):
+        b_front = b[0:half_b]
+        b_back = b[half_b:]
+    else:
+        b_front = b[0:half_b+1]
+        b_back = b[half_b+1:]
+
+    return (a_front + b_front + a_back + b_back)
+	
 
 
 
